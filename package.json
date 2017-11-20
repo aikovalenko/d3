@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git+https://github.com/aikovalenko/table.git",
+  "repository": "git+https://github.com/aikovalenko/d3.git",
   "author": "aikovalenko <ai.kovalenko@mail.ru>",
   "license": "ISC",
   "bugs": {
