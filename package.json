@@ -1,0 +1,48 @@
+{
+  "name": "d3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/aikovalenko/table.git",
+  "author": "aikovalenko <ai.kovalenko@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aikovalenko/d3/issues"
+  },
+  "homepage": "https://github.com/aikovalenko/d3#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-bump": "^2.7.0",
+    "gulp-cache": "^0.4.6",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-file-include": "^1.0.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-svg-sprites": "^4.1.2",
+    "gulp-uglify": "^2.1.2",
+    "imagemin-gifsicle": "^5.1.0",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^5.0.0",
+    "imagemin-svgo": "^5.2.2",
+    "mediaelement": "^4.0.6",
+    "uglify": "^0.1.5"
+  },
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "jquery": "^3.2.1",
+    "jquery-cycle-2": "^1.0.3",
+    "lettering.js": "^0.8.2",
+    "normalize.css": "^7.0.0",
+    "slick-carousel": "^1.8.1"
+  }
+}
