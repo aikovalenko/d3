@@ -19,7 +19,9 @@
 // });
 
 
-$('.js-cycle-slider').slick({
+
+
+$('.js-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -33,9 +35,9 @@ $('.js-cycle-slider').slick({
     autoplaySpeed: 3000
 }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
 
-    $('.js-cycle-slider').addClass('fade');
+    $('.js-slider').addClass('fade');
     setTimeout( function () {
-        $('.js-cycle-slider').removeClass('fade');
+        $('.js-slider').removeClass('fade');
         $('.slick-current .tlt').textillate();
     }, 1000);
 
@@ -44,6 +46,46 @@ $('.js-cycle-slider').slick({
 
 });
 $('.slick-current .tlt').textillate();
+
+
+
+$.scrollify({
+    section : ".js-scrollify-section",
+    sectionName : "section-name",
+    interstitialSection : "",
+    easing: "easeOutExpo",
+    scrollSpeed: 1100,
+    offset : 0,
+    scrollbars: false,
+    standardScrollElements: "",
+    setHeights: true,
+    overflowScroll: true,
+    updateHash: true,
+    touchScroll:true,
+    before:function() {},
+    after:function() {},
+    afterResize:function() {},
+    afterRender:function() {}
+});
+
+$('.form-subscribe').on('submit', function(e) {
+    e.preventDefault();
+    console.log('submit');
+    var form = $(this);
+    $.ajax({
+        type: 'POST',
+        url: '/raw/application_process.php',
+        data: form.serialize(),
+        success: function () {
+            form.html('<div class="text-center" style="font-size:20px;">Благодарим Вас за интерес к учебной программе Института организационной психологии!<br>Мы обязательно свяжемся с Вами в ближайшее время.<br><br>Ваш Институт организационной психологии.</div>');
+            console.log('success');
+        },
+        error: function () {
+            console.log('fail');
+        }
+    });
+});
+
 // ret();
 
 // function ret() {

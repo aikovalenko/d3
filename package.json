@@ -41,6 +41,7 @@
     "animate.css": "^3.5.2",
     "jquery": "^3.2.1",
     "jquery-cycle-2": "^1.0.3",
+    "jquery-scrollify": "^1.0.17",
     "lettering.js": "^0.8.2",
     "normalize.css": "^7.0.0",
     "slick-carousel": "^1.8.1"

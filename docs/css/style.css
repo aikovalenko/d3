@@ -3,7 +3,7 @@
 /* queries */
 .header
 {
-    position: absolute;
+    position: fixed;
     z-index: 9999; 
 
     width: 100%;
@@ -24,48 +24,29 @@
 
 @font-face
 {
-    font-family: 'Panton';
-    font-weight: 300;
-    font-style: normal;
-
-    src: url('../fonts/Panton-Light.eot');
-    src: url('../fonts/Panton-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Panton-Light.woff') format('woff'), url('../fonts/Panton-Light.ttf') format('truetype'), url('../fonts/Panton-Light.svg#Panton') format('svg');
-}
-
-@font-face
-{
-    font-family: 'Panton';
+    font-family: 'Futura';
     font-weight: 400;
     font-style: normal;
 
-    src: url('../fonts/Panton-Regular.eot');
-    src: url('../fonts/Panton-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Panton-Regular.woff') format('woff'), url('../fonts/Panton-Regular.ttf') format('truetype'), url('../fonts/Panton-Regular.svg#Panton') format('svg');
+    src: url('../fonts/FuturaBookC.eot');
+    src: url('../fonts/FuturaBookC.eot?#iefix') format('embedded-opentype'), url('../fonts/FuturaBookC.woff') format('woff'), url('../fonts/FuturaBookC.ttf') format('truetype'), url('../fonts/FuturaBookC.svg#Futura') format('svg');
 }
 
 @font-face
 {
-    font-family: 'Panton';
-    font-weight: 600;
-    font-style: normal;
-
-    src: url('../fonts/Panton-SemiBold.eot');
-    src: url('../fonts/Panton-SemiBold.eot?#iefix') format('embedded-opentype'), url('../fonts/Panton-SemiBold.woff') format('woff'), url('../fonts/Panton-SemiBold.ttf') format('truetype'), url('../fonts/Panton-SemiBold.svg#Panton') format('svg');
-}
-
-@font-face
-{
-    font-family: 'Panton';
+    font-family: 'Futura';
     font-weight: 800;
     font-style: normal;
 
-    src: url('../fonts/Panton-Bold.eot');
-    src: url('../fonts/Panton-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Panton-Bold.woff') format('woff'), url('../fonts/Panton-Bold.ttf') format('truetype'), url('../fonts/Panton-Bold.svg#Panton') format('svg');
+    src: url('../fonts/FuturaDemiC.eot');
+    src: url('../fonts/FuturaDemiC.eot?#iefix') format('embedded-opentype'), url('../fonts/FuturaDemiC.woff') format('woff'), url('../fonts/FuturaDemiC.ttf') format('truetype'), url('../fonts/FuturaDemiC.svg#Futura') format('svg');
 }
 
 html
 {
-    font-family: 'Panton', Arial, sans-serif; 
+    font-family: 'Futura', Arial, sans-serif;
     font-size: .8vw;
+    font-weight: 400;
 }
 
 body
@@ -92,7 +73,38 @@ p
     margin: 0;
 }
 
-.slider-wrapper
+p
+{
+    font-size: 1.1875rem; 
+    font-weight: 400;
+
+    margin-bottom: 1.5625rem;
+}
+p:last-child
+{
+    margin-bottom: 0;
+}
+
+.link
+{
+    color: #000;
+}
+.link--red
+{
+    color: #fe0000;
+}
+.link--hidden
+{
+    text-decoration: none;
+
+    color: inherit;
+}
+.link--hidden:hover
+{
+    text-decoration: underline;
+}
+
+.section-wrapper
 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -102,7 +114,54 @@ p
     height: 100%;
 }
 
-.cycle-slider
+.contacts-section
+{
+    padding-top: 18%;
+}
+.contacts-section h3
+{
+    font-size: 1.875rem; 
+    font-weight: 800;
+}
+.contacts-section__info
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; 
+    width: 39%;
+    padding-right: 2.875rem;
+    padding-left: 11vw;
+}
+.contacts-section__info__address
+{
+    font-size: 1.875rem; 
+
+    margin-bottom: 2.5rem;
+}
+.contacts-section__info__state
+{
+    font-size: 1.875rem;
+    font-weight: 800;
+
+    margin-bottom: 2.5rem;
+
+    color: #b6b6b6;
+}
+.contacts-section__info__social
+{
+    margin-top: 25px;
+}
+.contacts-section__info__social a
+{
+    margin-right: 20px;
+}
+.contacts-section__subscribe
+{
+    width: 100%;
+    max-width: 875px;
+    padding-right: 2.875rem;
+}
+
+.slider
 {
     width: 100%;
 
@@ -110,14 +169,14 @@ p
          -o-transition: all .5s ease;
             transition: all .5s ease;
 }
-.cycle-slider.fade
+.slider.fade
 {
     opacity: 0;
 }
 
 .logo
 {
-    position: absolute;
+    position: fixed;
     z-index: 9999; 
     top: 50px;
     left: 46px;
@@ -187,14 +246,14 @@ p
             transform: translate(0, -8px);
 }
 
-.cycle-slide
+.slide
 {
     position: relative;
 
     width: 100%;
     height: 100%;
 }
-.cycle-slide__content
+.slide__content
 {
     position: relative;
 
@@ -205,18 +264,18 @@ p
          -o-transition: all .2s ease;
             transition: all .2s ease;
 }
-.cycle-slide__content--full-width
+.slide__content--full-width
 {
     width: 100%;
 }
-.cycle-slide__content__inner
+.slide__content__inner
 {
     position: absolute;
     z-index: 3; 
     top: 37vh;
     left: 11vw;
 }
-.cycle-slide__content__head
+.slide__content__head
 {
     line-height: 4.5625rem;
 
@@ -224,32 +283,29 @@ p
 
     width: 200%;
 }
-.cycle-slide__content__head h2
+.slide__content__head h2
 {
     font-size: 4.0625rem;
+    font-weight: 800;
 }
-.cycle-slide__content__head__title
+.slide__content__head__title
 {
     font-size: 3.125rem;
+    font-weight: 400;
 }
-.cycle-slide__content__head__date
+.slide__content__head__date
 {
     font-size: 1.875rem;
+    font-weight: 400; 
 
     color: #fe0000;
 }
-.cycle-slide__content__description
+.slide__content__description
 {
-    font-size: 1.1875rem; 
-
     padding-top: 12vh;
     padding-right: 3vw;
 }
-.cycle-slide__content__description p
-{
-    margin-bottom: 1.5625rem;
-}
-.cycle-slide__image
+.slide__image
 {
     position: absolute;
     top: 0;
@@ -270,4 +326,63 @@ p
 .slick-track
 {
     height: 100%;
+}
+
+.form-subscribe
+{
+    width: 100%;
+    margin-top: 1.875rem;
+}
+.form-subscribe__input
+{
+    font-family: 'Futura', Arial, sans-serif;
+    font-size: 1.875rem;
+    line-height: 5.0625rem;
+
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; 
+    width: 100%;
+    margin-bottom: 2.8125rem;
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
+
+    border: 2px solid #fe0000;
+    outline: none;
+}
+.form-subscribe__inner
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+            align-items: flex-start;
+}
+.form-subscribe__inner__disclaimer
+{
+    padding-right: 5rem;
+}
+.form-subscribe button
+{
+    font-family: 'Futura', Arial, sans-serif;
+    font-size: 1.875rem;
+    font-weight: 800;
+    line-height: 5.3125rem;
+
+    margin-top: 1.875rem;
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
+
+    color: #fff;
+    border: none;
+    -webkit-border-radius: 0;
+            border-radius: 0; 
+    background-color: #fe0000;
 }

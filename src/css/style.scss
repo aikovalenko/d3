@@ -10,16 +10,17 @@
 
 
 
-@include fontFace('Panton','../fonts/Panton-Light', 300);
-@include fontFace('Panton','../fonts/Panton-Regular', 400);
-@include fontFace('Panton','../fonts/Panton-SemiBold', 600);
-@include fontFace('Panton','../fonts/Panton-Bold', 800);
+//@include fontFace('Futura','../fonts/futuralightc', 300);
+@include fontFace('Futura','../fonts/FuturaBookC', 400);
+//@include fontFace('Futura','../fonts/Panton-SemiBold', 600);
+@include fontFace('Futura','../fonts/FuturaDemiC', 800);
 
 
 
 html {
   font-size: .8vw;
-  font-family: 'Panton', Arial, sans-serif;
+  font-family: 'Futura', Arial, sans-serif;
+  font-weight: 400;
 }
 
 body {
@@ -37,13 +38,81 @@ html, body, main {
 h1, h2, h3, p {
   margin: 0;
 }
+p {
+  margin-bottom: calculateRem(25px);
+  font-weight: 400;
+  font-size: calculateRem(19px);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.link {
+  color: #000;
 
-.slider-wrapper {
+  &--red {
+    color: #fe0000;
+  }
+
+
+  &--hidden {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.section-wrapper {
   display: flex;
   height: 100%;
 }
+.contacts-section {
+  //align-items: center;
+  padding-top: 18%;
+  h3 {
+    font-weight: 800;
+    font-size: calculateRem(30px);
+  }
 
-.cycle-slider {
+  &__info {
+    width: 39%;
+    padding-left: 11vw;
+    padding-right: calculateRem(46px);
+    box-sizing: border-box;
+
+
+
+    &__address {
+      margin-bottom: calculateRem(40px);
+      font-size: calculateRem(30px);
+    }
+    &__state {
+      margin-bottom: calculateRem(40px);
+      font-size: calculateRem(30px);
+      font-weight: 800;
+      color: #b6b6b6;
+    }
+
+    &__social {
+
+      margin-top: 25px;
+
+      a {
+        margin-right: 20px;
+      }
+    }
+  }
+  &__subscribe {
+    max-width: 875px;
+    width: 100%;
+    padding-right: calculateRem(46px);
+    //box-sizing: border-box;
+  }
+}
+
+.slider {
   width: 100%;
 
   transition: all .5s ease;
@@ -54,7 +123,7 @@ h1, h2, h3, p {
 }
 
 .logo {
-  position: absolute;
+  position: fixed;
   top: 50px;
   left: 46px;
 
@@ -116,7 +185,7 @@ h1, h2, h3, p {
   }
 }
 
-.cycle-slide {
+.slide {
   position: relative;
   width: 100%;
   height: 100%;
@@ -149,15 +218,18 @@ h1, h2, h3, p {
 
       h2 {
         font-size: calculateRem(65px);
+        font-weight: 800;
       }
 
       &__title {
         font-size: calculateRem(50px);
+        font-weight: 400;
       }
 
       &__date {
         font-size: calculateRem(30px);
         color: #fe0000;
+        font-weight: 400;
       }
     }
 
@@ -168,11 +240,9 @@ h1, h2, h3, p {
       padding-top: 12vh;
       padding-right: 3vw;
 
-      font-size: calculateRem(19px);
 
-      p {
-        margin-bottom: calculateRem(25px);
-      }
+
+
     }
 
   }
@@ -202,4 +272,51 @@ h1, h2, h3, p {
 
 .slick-list, .slick-track {
   height: 100%;
+}
+
+.form-subscribe {
+  width: 100%;
+  margin-top: calculateRem(30px);
+
+
+  &__input {
+    width: 100%;
+    margin-bottom: calculateRem(45px);
+
+    padding-left: calculateRem(30px);
+    padding-right: calculateRem(30px);
+    line-height: calculateRem(81px);
+    font-family: 'Futura', Arial, sans-serif;
+    font-size: calculateRem(30px);
+    outline: none;
+    border: 2px solid #fe0000;
+    box-sizing: border-box;
+
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &__disclaimer {
+      padding-right: calculateRem(80px);
+    }
+  }
+
+  button {
+    //width: 225px;
+    margin-top: calculateRem(30px);
+    padding-left: calculateRem(30px);
+    padding-right: calculateRem(30px);
+    line-height: calculateRem(85px);
+    color: #fff;
+    font-size: calculateRem(30px);
+    font-family: 'Futura', Arial, sans-serif;
+    font-weight: 800;
+    background-color: #fe0000;
+    border: none;
+    border-radius: 0;
+  }
+
 }
