@@ -115,12 +115,28 @@ p {
 .slider {
   width: 100%;
 
-  transition: all .5s ease;
+  transition: all 1s ease;
 
   &.fade {
     opacity: 0;
   }
 }
+.slider-section {
+  transition: all 1s ease;
+
+  &.fade {
+    opacity: 0;
+
+  }
+}
+
+
+//.slick-slide {
+//  opacity: 0 !important;
+//  &.slick-current {
+//    opacity: 1 !important;
+//  }
+//}
 
 .logo {
   position: fixed;
@@ -195,7 +211,6 @@ p {
     width: 39%;
     height: 100%;
     //background-color: #fbfaf8;
-    transition: all .2s ease;
 
     &--full-width {
       width: 100%;
@@ -206,6 +221,14 @@ p {
       top: 37vh;
       left: 11vw;
       z-index: 3;
+
+      transition: all .2s ease;
+      opacity: 1;
+      &.fade {
+        opacity: 0;
+        transition: all .1s ease;
+        //transform: translateX(-600px);
+      }
     }
 
     &__head {
@@ -239,11 +262,8 @@ p {
       //left: 11vw;
       padding-top: 12vh;
       padding-right: 3vw;
-
-
-
-
     }
+
 
   }
   &__image {
@@ -254,12 +274,24 @@ p {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: #6ca7cc;
+    background-color: #fe0000;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    //opacity: 0;
+    opacity: 1;
+    transition: transform 1s ease-out, opacity 0.2s ease;
+
+    &.fade {
+      opacity: 0;
+      transition: opacity .2s ease;
+
+    }
+
+    &.move {
+      transform: translateY(-500px);
+      transition: all 1.2s ease-in;
+    }
 
   }
 }
@@ -269,6 +301,18 @@ p {
     //opacity: 1;
   }
 }
+
+//.slick-slider {
+//  visibility: hidden;
+//  opacity: 0;
+//  transition: opacity 400ms ease-in-out, transform 400ms cubic-bezier(.45,0,.27,1);
+//
+//  &.slick-initialized {
+//    visibility: visible;
+//    transition: opacity 400ms ease-in-out, transform 400ms cubic-bezier(.45,0,.27,1);
+//    opacity: 1;
+//  }
+//}
 
 .slick-list, .slick-track {
   height: 100%;
@@ -281,6 +325,7 @@ p {
 
   &__input {
     width: 100%;
+    height: calculateRem(81px);
     margin-bottom: calculateRem(45px);
 
     padding-left: calculateRem(30px);
@@ -317,6 +362,30 @@ p {
     background-color: #fe0000;
     border: none;
     border-radius: 0;
+    cursor: pointer;
+    outline: none;
+  }
+
+}
+
+.form-input {
+  position: relative;
+
+  &__hint {
+    position: absolute;
+    bottom: calculateRem(18px);
+  }
+}
+
+
+.animate-together {
+  transform: translateY(0);
+  transition: all .5s ease-out;
+  opacity: 1;
+  &.anim {
+    transform: translateY(150px);
+    transition: all .5s ease-in;
+    opacity: 0;
   }
 
 }

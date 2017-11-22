@@ -30,23 +30,29 @@ $('.js-slider').slick({
     pauseOnFocus: false,
     fade: true,
     infinite: true,
-    speed: 1500,
+    speed: 1000,
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 12000
 }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-
-    $('.js-slider').addClass('fade');
+    $('.slide__image').addClass('fade');
+    $('.slide__content__inner').addClass('fade');
+    $('.slider-section').addClass('fade');
     setTimeout( function () {
-        $('.js-slider').removeClass('fade');
+
         $('.slick-current .tlt').textillate();
+        $('.slick-current .tlt-2').textillate();
     }, 1000);
 
-}).on('afterChange', function(event, slick, currentSlide){
 
+
+}).on('afterChange', function(event, slick, currentSlide){
+    $('.slider-section').removeClass('fade');
+    $('.slide__image').removeClass('fade');
+    $('.slide__content__inner').removeClass('fade');
 
 });
 $('.slick-current .tlt').textillate();
-
+$('.slick-current .tlt-2').textillate();
 
 
 $.scrollify({
@@ -54,7 +60,7 @@ $.scrollify({
     sectionName : "section-name",
     interstitialSection : "",
     easing: "easeOutExpo",
-    scrollSpeed: 1100,
+    scrollSpeed: 2000,
     offset : 0,
     scrollbars: false,
     standardScrollElements: "",
@@ -62,28 +68,70 @@ $.scrollify({
     overflowScroll: true,
     updateHash: true,
     touchScroll:true,
-    before:function() {},
-    after:function() {},
+    before:function(i,panels) {
+        var ref = panels[i].attr("data-section-name");
+
+        if(ref==="intro") {
+            $('.slide__image').removeClass('move');
+
+            $.each($('.animate-together'), function(i, el) {
+                setTimeout(function() {
+                    $(el).addClass("anim");
+                }, 100 + (i * 150));
+            });
+
+        }
+        if(ref==="contacts") {
+            $('.slide__image').addClass('move');
+
+            $.each($('.animate-together'), function(i, el) {
+                setTimeout(function() {
+                    $(el).removeClass("anim");
+                }, 100 + (i * 150));
+            });
+        }
+
+        // setTimeout( function () {
+        //     $('.slide__image').removeClass('move');
+        // }, 2100);
+
+    },
+    after:function() {
+
+    },
     afterResize:function() {},
     afterRender:function() {}
 });
 
 $('.form-subscribe').on('submit', function(e) {
     e.preventDefault();
-    console.log('submit');
-    var form = $(this);
-    $.ajax({
-        type: 'POST',
-        url: '/raw/application_process.php',
-        data: form.serialize(),
-        success: function () {
-            form.html('<div class="text-center" style="font-size:20px;">Благодарим Вас за интерес к учебной программе Института организационной психологии!<br>Мы обязательно свяжемся с Вами в ближайшее время.<br><br>Ваш Институт организационной психологии.</div>');
-            console.log('success');
-        },
-        error: function () {
-            console.log('fail');
-        }
-    });
+
+    var form = $(this),
+        valEmail = $('input[type="email"]').val(),
+        hintBox = $('.form-input__hint');
+
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    if (validateEmail(valEmail)) {
+        $.ajax({
+            type: 'POST',
+            url: './raw/subscribe.php',
+            data: form.serialize()
+
+        }).done(function(msg) {
+            if(msg === 'OK') {
+                form.html('<div class="text-center" style="font-size:20px;">Спасибо, Вы подписаны.</div>');
+                hintBox.html('')
+            } else {
+                form.html(msg);
+            }
+        });
+    }
+    else hintBox.html('Введите корректный e-mail адрес');
+
 });
 
 // ret();

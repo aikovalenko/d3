@@ -12,18 +12,9 @@
 //    }
 
     if (!empty($_POST)) {
-        $name = stripslashes($_POST['name']);
         $email = stripslashes($_POST['email']);
-        $phone = stripslashes($_POST['phone']);
-        $text = stripslashes($_POST['text']);
-        $page = stripslashes($_POST['page']);
-        $page_name = stripslashes($_POST['page_name']);
         $error = '';
-        $subject = 'Институт Организационной Психологии. Сообщение из формы обратной связи.';
-        if ($page) {
-            $textPage = "<p>Страница с которой отправлен запрос: ".$_POST['page']. " (" .$_POST['page_name'].")</p>";
-
-        }
+        $subject = 'Центр моды и дизайна D3 - подписка';
         $message = '
             <html>
                     <head>
@@ -31,11 +22,7 @@
                     </head>
                     <body>
                             <b>Данные отправителя:</b><br><br>
-                            <p>Имя: '.$name.'</p>
                             <p>E-mail: '.$email.'</p>
-                            <p>Телефон: '.$phone.'</p>
-                            <p>Текст обращения: '.$text.'</p><br>
-                            '.$textPage.'
 
                     </body>
             </html>';
@@ -48,17 +35,16 @@
 //          $error = '<p class="bg-danger">Email введен неправильно!</p>';
 //      }
         if(!$error){
-            $mail = mail('ai.kovalenko@mail.ru', $subject, $message,
-                 "From: ".$name." <".$email.">\r\n"
+            $mail = mail('pr@vmdpni.ru', $subject, $message,
+                 "From: ".$email." <".$email.">\r\n"
                 ."Reply-To: ".$email."\r\n"
                 ."Content-type: text/html; charset=utf-8 \r\n"
                 ."X-Mailer: PHP/" . phpversion());
-            header('Location: success.php');
             if($mail){
                 echo 'OK';
             }
         }else{
-
+            echo '<div class="bg-danger">'.$error.'</div>';
         }
     }
 ?>
