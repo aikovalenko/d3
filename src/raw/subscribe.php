@@ -35,7 +35,7 @@
 //          $error = '<p class="bg-danger">Email введен неправильно!</p>';
 //      }
         if(!$error){
-            $mail = mail('pr@vmdpni.ru', $subject, $message,
+            $mail = mail('design@vmdpni.ru', $subject, $message,
                  "From: ".$email." <".$email.">\r\n"
                 ."Reply-To: ".$email."\r\n"
                 ."Content-type: text/html; charset=utf-8 \r\n"
